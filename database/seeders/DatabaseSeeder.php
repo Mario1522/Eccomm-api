@@ -53,23 +53,23 @@ class DatabaseSeeder extends Seeder
         // Permission::create(['name' => 'edit categories']);
         // Permission::create(['name' => 'delete categories']);
         // Permission::create(['name' => 'assign permissions']);
-        $productAdmin = Role::create(['name' => 'product admin']);
-        $productAdmin->givePermissionTo([
-            'view products',
-            'create products',
-            'edit products',
-            'delete products',
-            'view categories',
-            'create categories',
-            'edit categories',
-            'delete categories',
-        ]);
-        $orderAdmin = Role::create(['name' => 'order admin']);
-        $orderAdmin->givePermissionTo([
-            'view orders',
-            'create orders',
-        ]);
-        $usersAdmin = Role::where('name', 'users admin')->first();
+        // $productAdmin = Role::create(['name' => 'product admin']);
+        // $productAdmin->givePermissionTo([
+        //     'view products',
+        //     'create products',
+        //     'edit products',
+        //     'delete products',
+        //     'view categories',
+        //     'create categories',
+        //     'edit categories',
+        //     'delete categories',
+        // ]);
+        // $orderAdmin = Role::create(['name' => 'order admin']);
+        // $orderAdmin->givePermissionTo([
+        //     'view orders',
+        //     'create orders',
+        // ]);
+        $usersAdmin = Role::create(['name' => 'users admin']);
         $usersAdmin->givePermissionTo([
             'view users',
             'create users',
@@ -82,7 +82,7 @@ class DatabaseSeeder extends Seeder
             'view permissions',
             'assign permissions',
         ]);
-        $admin = Role::where('name', 'admin')->first();
+        $admin = Role::create(['name' => 'admin']);
         $admin->givePermissionTo([
             'assign permissions',
             'view users',
