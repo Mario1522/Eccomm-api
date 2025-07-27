@@ -53,7 +53,7 @@ class DatabaseSeeder extends Seeder
         // Permission::create(['name' => 'edit categories']);
         // Permission::create(['name' => 'delete categories']);
         // Permission::create(['name' => 'assign permissions']);
-        // $productAdmin = Role::where('name', 'product admin')->first();
+        $productAdmin = Role::create(['name' => 'product admin']);
         $productAdmin->givePermissionTo([
             'view products',
             'create products',
