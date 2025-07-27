@@ -2388,7 +2388,7 @@
                                         "type": "integer",
                                         "example": 2
                                     },
-                                    "images": {
+                                    "images[]": {
                                         "type": "array",
                                         "items": {
                                             "type": "string",
@@ -2451,7 +2451,7 @@
                                                     "type": "string",
                                                     "example": "2025-07-23T21:00:00.000000Z"
                                                 },
-                                                "images": {
+                                                "images[]": {
                                                     "type": "array",
                                                     "items": {
                                                         "properties": {

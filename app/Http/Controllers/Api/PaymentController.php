@@ -121,9 +121,9 @@ class PaymentController extends Controller
         if($order->user_id != $request->user()->id){
             return response()->json(['message' => 'Unauthorized To Pay This Product'], 401);
         }
-        // if(!$order->canBePaid()){
-        //     return response()->json(['message' => 'Order Can Not Be Paid'], 400);
-        // }
+        if(!$order->canBePaid()){
+            return response()->json(['message' => 'Order Can Not Be Paid'], 400);
+        }
 
 
         return $this->paymentGateway->sendPayment($request,$order);
