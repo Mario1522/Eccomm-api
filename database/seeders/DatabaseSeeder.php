@@ -33,29 +33,36 @@ class DatabaseSeeder extends Seeder
 
 
 
-        Permission::create(['name' => 'view users']);
-        Permission::create(['name' => 'create users']);
-        Permission::create(['name' => 'edit users']);
-        Permission::create(['name' => 'delete users']);
-        Permission::create(['name' => 'view roles']);
-        Permission::create(['name' => 'create roles']);
-        Permission::create(['name' => 'edit roles']);
-        Permission::create(['name' => 'delete roles']);
-        Permission::create(['name' => 'view permissions']);
-        Permission::create(['name' => 'view products']);
-        Permission::create(['name' => 'create products']);
-        Permission::create(['name' => 'edit products']);
-        Permission::create(['name' => 'delete products']);
-        Permission::create(['name' => 'view orders']);
-        Permission::create(['name' => 'create orders']);
-        Permission::create(['name' => 'view categories']);
-        Permission::create(['name' => 'create categories']);
-        Permission::create(['name' => 'edit categories']);
-        Permission::create(['name' => 'delete categories']);
-        Permission::create(['name' => 'assign permissions']);
-        $productAdmin = Role::where('name', 'product admin')->first();
+        // Permission::create(['name' => 'view users']);
+        // Permission::create(['name' => 'create users']);
+        // Permission::create(['name' => 'edit users']);
+        // Permission::create(['name' => 'delete users']);
+        // Permission::create(['name' => 'view roles']);
+        // Permission::create(['name' => 'create roles']);
+        // Permission::create(['name' => 'edit roles']);
+        // Permission::create(['name' => 'delete roles']);
+        // Permission::create(['name' => 'view permissions']);
+        // Permission::create(['name' => 'view products']);
+        // Permission::create(['name' => 'create products']);
+        // Permission::create(['name' => 'edit products']);
+        // Permission::create(['name' => 'delete products']);
+        // Permission::create(['name' => 'view orders']);
+        // Permission::create(['name' => 'create orders']);
+        // Permission::create(['name' => 'view categories']);
+        // Permission::create(['name' => 'create categories']);
+        // Permission::create(['name' => 'edit categories']);
+        // Permission::create(['name' => 'delete categories']);
+        // Permission::create(['name' => 'assign permissions']);
+        // $productAdmin = Role::where('name', 'product admin')->first();
         $productAdmin->givePermissionTo([
-            'assign permissions'
+            'view products',
+            'create products',
+            'edit products',
+            'delete products',
+            'view categories',
+            'create categories',
+            'edit categories',
+            'delete categories',
         ]);
         $orderAdmin = Role::create(['name' => 'order admin']);
         $orderAdmin->givePermissionTo([
@@ -64,7 +71,16 @@ class DatabaseSeeder extends Seeder
         ]);
         $usersAdmin = Role::where('name', 'users admin')->first();
         $usersAdmin->givePermissionTo([
-            'assign permissions'
+            'view users',
+            'create users',
+            'edit users',
+            'delete users',
+            'view roles',
+            'create roles',
+            'edit roles',
+            'delete roles',
+            'view permissions',
+            'assign permissions',
         ]);
         $admin = Role::where('name', 'admin')->first();
         $admin->givePermissionTo([
@@ -90,12 +106,12 @@ class DatabaseSeeder extends Seeder
             'delete categories',
         ]);
 
-        $admin = User::create([
+        $adminUser = User::create([
             'name' => 'Admin',
             'email' => 'admin@admin.com',
             'password' => Hash::make('123465678'),
         ]);
-        $admin->assignRole('admin');
+        $adminUser->assignRole('admin');
 
 
     }
