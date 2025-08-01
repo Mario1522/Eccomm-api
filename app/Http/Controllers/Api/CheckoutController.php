@@ -221,7 +221,7 @@ class CheckoutController extends Controller
     public function orderHistory(Request $request)
     {
         $user = $request->user();
-        $orders = $user->orders()->with('items')->get();
+        $orders = $user->orders()->get();
 
         return response()->json([
             'message' => 'Order history retrieved successfully',
@@ -277,7 +277,7 @@ class CheckoutController extends Controller
     public function orderDetails(Request $request, $id)
     {
         $user = $request->user();
-        $order = $user->orders()->with('items')->find($id);
+        $order = $user->orders()->find($id);
 
         if (!$order) {
             return response()->json(['message' => 'Order not found', 'status' => false], 404);
